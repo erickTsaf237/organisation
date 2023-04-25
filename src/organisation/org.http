@@ -1,0 +1,49 @@
+
+
+
+### Send POST request with json body
+PUT http://localhost:3000/organisation
+Content-Type: application/json
+
+{
+  "_id": "644425265de51896be5bfd7a",
+  "code": "poiuiop",
+  "nom": "ElECAM",
+  "id_user": "64466239c2f9707e75ad9e66"
+}
+
+### Send POST request with json body
+POST http://localhost:3000/organisation
+Content-Type: application/json
+
+{
+  "code": "verudy",
+  "nom": "ElECAMolpok",
+  "id_user": "64466988fb9ae44dc640f8ac"
+}
+
+### Send POST request with json body
+PUT http://localhost:3000/user
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVyaWNrdGV1ZGVtIiwic3ViIjozLCJpYXQiOjE2ODExMzY1NTcsImV4cCI6MTY4MTEzNjY3N30.i6AGZ7EnD7_2aIX7tZIkdttVs8VW4W9z3_R15EkfB_4
+
+{
+  "id": 3,
+  "login": "erickteudem",
+  "nom": "Nteudem",
+  "prenom": "Erick",
+  "numero": "654190514",
+  "password": "101156204",
+  "date_naissance": "2001-01-04",
+  "image": "popopop"
+
+}
+
+
+### Send POST request with json body
+GET http://localhost:3000/organisation/all/64466428acd4698748e67fac
+Accept: application/json
+
+### Send POST request with json body
+DELETE http://localhost:3000/organisation/all/64466428acd4698748e67fac
+Accept: application/json

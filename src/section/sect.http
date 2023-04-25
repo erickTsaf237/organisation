@@ -1,0 +1,77 @@
+
+
+
+
+
+
+### Send POST Section request with json body
+POST http://localhost:3000/section
+Content-Type: application/json
+
+{
+  "ville": "Bandjoun",
+  "id_organisation": "644425265de51896be5bfd7a",
+  "nom": "section de bandjoun",
+  "categorie": "departementale",
+  "description": "RAS"
+}
+
+### Send POST Section request with json body
+POST http://localhost:3000/section
+Content-Type: application/json
+
+{
+  "ville": "Test",
+  "id_organisation": "644425265de51896be5bfd7a",
+  "nom": "section de test",
+  "categorie": "departementale",
+  "description": "RAS"
+}
+
+### Send POST Section request with json body
+POST http://localhost:3000/section
+Content-Type: application/json
+
+{
+  "ville": "Baham",
+  "id_organisation": "6446683acbcc164d549d2df7",
+  "nom": "section de Baham",
+  "categorie": "departementale",
+  "description": "RAS"
+}
+
+### Send PUT request with json body
+PUT http://localhost:3000/section
+Content-Type: application/json
+
+{
+  "nom": "Grande section de Baham",
+  "ville": "Baham",
+  "categorie": "departementale",
+  "description": "RAS",
+  "id_responsable": "6444c887c2bb050dd7fef225",
+  "_id": "6444ba66bf96f176015d8045"
+
+}
+
+
+
+### Send DELETE section request
+DELETE http://localhost:3000/section/6444bb8b756c7d0d2a7cb99c
+Accept: application/json
+
+### Send GET Section request
+GET http://localhost:3000/section/6444bb8b756c7d0d2a7cb99c
+Accept: application/json
+
+### Send GET all Section request
+GET http://localhost:3000/section/all
+Accept: application/json
+
+### Send GET orgnisation section request
+GET http://localhost:3000/section/organisation/644425265de51896be5bfd7a
+Accept: application/json
+
+### Send GET id Section request with json body
+GET http://localhost:3000/section/6444ab2b8bf0e51d4675f5ba
+Accept: application/json

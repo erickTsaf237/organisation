@@ -1,0 +1,54 @@
+
+
+### Send POST request with json body
+POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+  "login": "ericktsafack2017@gmail.com",
+  "nom": "Nteudem",
+  "prenom": "Erick",
+  "numero": "654190514",
+  "password": "101156204",
+  "image": "popopop"
+
+}
+
+### Send POST request with json body
+POST http://localhost:3000/auth
+Content-Type: application/json
+
+{
+  "login": "ericktsafack2017@gmail.com",
+
+  "password": "101156204"
+
+}
+
+### Send POST request with json body
+PUT http://localhost:3000/user
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVyaWNrdGV1ZGVtIiwic3ViIjozLCJpYXQiOjE2ODExMzY1NTcsImV4cCI6MTY4MTEzNjY3N30.i6AGZ7EnD7_2aIX7tZIkdttVs8VW4W9z3_R15EkfB_4
+
+{
+  "id": "644358f014cf8106621ae25f",
+  "login": "ericktsafack2017@gmail.com",
+  "nom": "Nteudem",
+  "prenom": "Erick",
+  "numero": "654190514",
+  "password": "101156204",
+  "date_naissance": "2001-01-04",
+  "image": "popopop"
+
+}
+
+
+
+### Send POST request with json body
+GET http://localhost:3000/user/all/
+Accept: application/json
+
+
+### Send POST request with json body
+DELETE http://localhost:3000/user/644358f014cf8106621ae25f
+Accept: application/json

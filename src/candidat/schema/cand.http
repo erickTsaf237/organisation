@@ -1,0 +1,92 @@
+
+
+### Send POST candidat request with json body
+POST http://localhost:3000/candidat
+Content-Type: application/json
+
+{
+  "nom": "Cabral",
+  "id_election": "64466a49fb9ae44dc640f8ab",
+  "prenom": "Cabral",
+  "parti": "PURS",
+  "date_naissance": "24-08-1983",
+  "lien": "RAS",
+  "image": "RAS"
+}
+
+### Send POST candidat request with json body
+POST http://localhost:3000/candidat
+Content-Type: application/json
+
+{
+  "nom": "Kamto",
+  "id_election": "64466a49fb9ae44dc640f8cd",
+  "prenom": "Maurice",
+  "parti": "MRCp",
+  "date_naissance": "24-08-1988",
+  "lien": "RAS",
+  "password": "dddd",
+  "image": "RAS"
+}
+
+### Send PUT candidat request with json body
+POST http://localhost:3000/candidat
+Content-Type: application/json
+
+{
+  "nom": "test",
+  "id_election": "6444aa0fe6a97f9bc6dd05c6",
+  "prenom": "Maurice",
+  "parti": "test",
+  "date_naissance": "24-08-1988",
+  "lien": "RAS",
+  "image": "RAS"
+}
+
+### Send PUT candidat request with json body
+PUT http://localhost:3000/candidat
+Content-Type: application/json
+
+{
+  "nom": "test 2",
+  "prenom": "Maurice",
+  "parti": "test lol",
+  "lien": "RAS",
+  "image": ",on image",
+  "date_naissance": "24-08-2000",
+  "_id": "6444daf5fc27a65f8ad2cefe"
+}
+
+### Send PUT request with json body
+PUT http://localhost:3000/candidat
+Content-Type: application/json
+
+{
+  "nom": "Grande candidat de Baham",
+  "ville": "Baham",
+  "categorie": "departementale",
+  "description": "RAS",
+  "_id": "6444ba66bf96f176015d8045"
+}
+
+
+
+### Send DELETE candidat request
+DELETE http://localhost:3000/candidat/6444daf5fc27a65f8ad2cefe
+Accept: application/json
+
+### Send GET candidat request
+GET http://localhost:3000/candidat/6444bb8b756c7d0d2a7cb99c
+Accept: application/json
+
+### Send GET all candidat request
+GET http://localhost:3000/candidat/all
+Accept: application/json
+
+### Send GET orgnisation candidat request
+GET http://localhost:3000/candidat/election/6444aa0fe6a97f9bc6dd05c6
+Accept: application/json
+
+### Send GET id candidat request with json body
+GET http://localhost:3000/candidat/6444da96f43e86754458ef73
+Accept: application/json

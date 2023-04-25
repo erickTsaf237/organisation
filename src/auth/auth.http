@@ -1,0 +1,12 @@
+
+
+### Send POST request with json body
+POST http://localhost:3000/auth
+Content-Type: application/json
+
+{
+  "login": "ericktsafack2017@gmail.com",
+  "password": "101156204"
+}
+
+### Send POST request with json body
