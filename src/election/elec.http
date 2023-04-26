@@ -11,7 +11,7 @@ Content-Type: application/json
 {
   "code": "popolo",
   "libele": "delege test2",
-  "id_organisation": "644669b1fb9ae44dc640f8a8"
+  "id_organisation": "644669b1fb9ae44dc640f8a9"
 }
 
 ### Send POST request with json body

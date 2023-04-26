@@ -37,6 +37,7 @@ export class ElectionController {
 
     @Get('/organisation/:id')
     getOrganisationElections(@Param('id')id_organisation:string){
+        console.log('oooooooooooooooooooooo');
         return this.electionService.getOrganistaionElections(id_organisation)
     }
 

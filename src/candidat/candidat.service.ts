@@ -3,15 +3,22 @@ import {InjectModel} from "@nestjs/mongoose";
 import {Election} from "../election/schema/election.schema";
 import {Model} from "mongoose";
 import {Candidat} from "./schema/candidat.schema";
+import {ElectionService} from "../election/election.service";
 
 @Injectable()
 export class CandidatService {
-    constructor(@InjectModel(Candidat.name) private candidat:typeof Model<Candidat>) {
+    constructor(@InjectModel(Candidat.name) private candidat:typeof Model<Candidat>,
+                private electionService: ElectionService
+                ) {
     }
 
     create(newObject: Candidat) {
-        const elec = new this.candidat(newObject);
-        return elec.save();
+        const elec = this.electionService.getOne(newObject.id_election);
+        if (elec == null){
+            throw TypeError('L\'election identifier par '+newObject.id_election +' n\'existe pas !!');
+        }
+        const can = new this.candidat(newObject);
+        return can.save();
     }
 
     update(updatedObject: any) {
@@ -22,6 +29,10 @@ export class CandidatService {
 
     deleteOne(id: string) {
         return this.candidat.findOneAndDelete({_id:id})
+    }
+
+    deleteManyByParen(id: string) {
+        return this.candidat.deleteMany({id_election:id})
     }
 
     getOne(id: string) {

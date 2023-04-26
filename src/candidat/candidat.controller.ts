@@ -24,6 +24,10 @@ export class CandidatController {
     deleteOne(@Param('id')id:string){
         return this.candidatService.deleteOne(id);
     }
+    @Delete('/election/:id')
+    deleteElectionCandidats(@Param('id')id:string){
+        return this.candidatService.deleteManyByParen(id);
+    }
     @Get('/all')
     getAll(){
         console.log('oooooooooooooooooooooo')

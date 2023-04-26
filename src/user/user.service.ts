@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import {User} from "./shemas/users.shema";
 import * as bcrypt from 'bcrypt';
-import {Model} from "mongoose";
+import {Model} from "mongoose";     
 import * as Mongo from "@nestjs/mongoose";
 
 @Injectable()
@@ -48,7 +48,15 @@ export class UserService {
     }
 
     update(newUser: any) {
-        return this.userModel.findOneAndUpdate({_id: newUser.id}, newUser, {new: true}).catch((error)=>{
+        return this.userModel.findOneAndUpdate({_id: newUser._id}, newUser, {new: true}).catch((error)=>{
+            console.table(error);
+        });
+    }
+
+    updatetoken(newUser: any) {
+        console.log(newUser);
+        
+        return this.userModel.findOneAndUpdate({_id: newUser._id}, {token:newUser.token}, {new: true}).catch((error)=>{
             console.table(error);
         });
     }

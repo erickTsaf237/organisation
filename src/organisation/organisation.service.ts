@@ -20,11 +20,14 @@ export class OrganisationService {
     findOne(id_user: string): Promise<Organisation> {
         console.log('eeeeeeeeeeeeeeeeeeee');
 
-        return this.organisation.findOne({
-            where: {
-                id_user,
-            },
-        });
+        return this.organisation.findOne({id_user:id_user});
+            
+    }
+    findOneByPK(id: string): Promise<Organisation> {
+        console.log('eeeeeeeeeeeeeeeeeeee');
+
+        return this.organisation.findOne({_id:id});
+
     }
 
     async remove(id: string): Promise<string> {

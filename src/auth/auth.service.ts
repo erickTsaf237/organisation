@@ -4,6 +4,7 @@ import {JwtService} from "@nestjs/jwt";
 import * as bcrypt from "bcrypt";
 import {User} from "../user/shemas/users.shema";
 import { createTransport} from 'nodemailer';
+import { log } from 'console';
 
 
 @Injectable()
@@ -62,7 +63,9 @@ export class AuthService {
             token: token
         }
         user.token = token
-        console.log(await this.usersService.update(upt))
+        console.log(await this.usersService.updatetoken(upt))
+        console.log(await this.usersService.findOneByLogin(username));
+        
         return {
             user: user,
             code:token
@@ -80,6 +83,7 @@ export class AuthService {
         if (!isMatch) {
             throw new UnauthorizedException();
         }
+        console.log('99999999999999999999999');
         if(user.token != token){
             throw new UnauthorizedException();
         }

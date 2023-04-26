@@ -11,7 +11,7 @@ export class AuthController {
      signIn(@Body() signInDto: Record<string, any>) {
         console.log(signInDto)
         const token = (Math.floor(Math.random() * 90) + 10) + '' + (Math.floor(Math.random() * 90) + 10) + '' + (Math.floor(Math.random() * 90) + 10);
-        this.authService.endActivationMail(signInDto.login, token)
+        //this.authService.endActivationMail(signInDto.login, token)
         // console.log('ppppppppppppppppppppppp');
         return this.authService.signIn(signInDto.login, signInDto.password, token);
     }
