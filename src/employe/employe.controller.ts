@@ -32,11 +32,19 @@ export class EmployeController {
 
     @Get('/:id')
     getOne(@Param('id')id:string){
+        console.log(id);
         return this.employeService.getOne(id)
     }
-
-    @Get('/section/:id')
-    getOrganisationSections(@Param('id')id_organisation:string){
-        return this.employeService.getsectionEmployes(id_organisation)
+    @Get('/:id/password')
+    getOne2(@Param('id')id:string,@Param('password')password:string){
+        console.log(id);
+        return this.employeService.getOnePass(id, password)
     }
+
+    @Get('/section/:id_section')
+    getOrganisationSections(@Param('id_section')id_section:string){
+        return this.employeService.getsectionEmployes(id_section)
+    }
+
+
 }

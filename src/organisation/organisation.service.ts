@@ -24,9 +24,15 @@ export class OrganisationService {
             
     }
     findOneByPK(id: string): Promise<Organisation> {
-        console.log('eeeeeeeeeeeeeeeeeeee');
+        console.log('*************************   '+id);
+        try {
+            const a= this.organisation.findOne({_id:id});
+            return a;
+        }catch (e) {
+            console.error(e.trace());
+            return e;
+        }
 
-        return this.organisation.findOne({_id:id});
 
     }
 

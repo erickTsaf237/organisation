@@ -55,4 +55,14 @@ export class BureauController {
     // getElectionsBureaux(@Param('id')id_organisation:string){
     //     return this.bureauService.getElectionsBureaux(id_organisation)
     // }
+
+    @Get('/free/employe/:id_election/:id_responsable')
+    getOrganisationSections(@Param('id_election')id_election:string,@Param('id_responsable')id_responsable:string){
+        return this.bureauService.employeIsFree(id_election, id_responsable)
+    }
+
+    @Get('/section/election/:id_election/:id_section')
+    getAllByElectionSection(@Param('id_election')id_election:string,@Param('id_section')id_section:string){
+        return this.bureauService.getAllByElectionSection(id_election, id_section);
+    }
 }

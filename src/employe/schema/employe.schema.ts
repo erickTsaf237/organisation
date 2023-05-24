@@ -8,15 +8,15 @@ export type EmployeDocument = HydratedDocument<Employe>
 @Schema()
 export class Employe{
 
-    @Prop()
+    @Prop({required: true})
     nom:string
     @Prop({required: true})
     prenom:string
-    @Prop({required: true})
+    @Prop()
     login:string
-    @Prop({required: true, unique:true})
-    password:string
     @Prop({required: true})
+    password:string
+    @Prop()
     numero:string
     @Prop()
     image:string
@@ -27,6 +27,7 @@ export class Employe{
     token:string
     @Prop({type:Schema2.Types.ObjectId, ref:'Section', require:true})
     id_section:string
+
 
 
 }

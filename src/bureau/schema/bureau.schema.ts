@@ -16,6 +16,8 @@ export class Bureau{
     description: string
     @Prop({require:true})
     localisation: string
+    @Prop({default:Date.now()})
+    createdAt: Date
     @Prop({type:Schema2.Types.ObjectId, ref:'Section',require:true})
     id_section: string
     @Prop([{type:Schema2.Types.ObjectId, ref:'Employe'}])

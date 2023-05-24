@@ -18,7 +18,7 @@ export class Section{
     localisation: string
     @Prop({type:Schema2.Types.ObjectId, ref:'Organisation', require:true})
     id_organisation: string
-    @Prop()
+    @Prop({type:Schema2.Types.ObjectId, ref:'Employe'})
     id_responsable: string
 
 }

@@ -4,9 +4,10 @@ import { AuthService } from './auth.service';
 import {jwtConstants} from "./constants";
 import {JwtModule} from "@nestjs/jwt";
 import {UserModule} from "../user/user.module";
+import {EmployeModule} from "../employe/employe.module";
 
 @Module({
-  imports: [UserModule,JwtModule.register({
+  imports: [UserModule, EmployeModule,JwtModule.register({
     global: true,
     secret: jwtConstants.secret,
     signOptions: { expiresIn: '1000s' },

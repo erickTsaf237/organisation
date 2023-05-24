@@ -5,16 +5,19 @@ import * as bcrypt from "bcrypt";
 import {User} from "../user/shemas/users.shema";
 import { createTransport} from 'nodemailer';
 import { log } from 'console';
+import {EmployeService} from "../employe/employe.service";
 
 
 @Injectable()
 export class AuthService {
-    constructor(private usersService: UserService,
+    constructor(
+        private usersService: UserService,
+        private employeService: EmployeService,
                 private jwtService: JwtService) {
     }
 
     private transporter = createTransport({
-        // service: 'gmail',
+
         host:'smtp.gmail.com',
         port:587,
         //sdunfulnjemrsdzh
@@ -24,7 +27,6 @@ export class AuthService {
             pass: 'sdunfulnjemrsdzh'
         },
     }, (error, info)=>{
-        console.log(48888888888888888888888);
         if(error){
             console.log(error)
         }
@@ -43,8 +45,8 @@ export class AuthService {
         });
     }
 
-    async signIn(username: string, pass: string, token=''): Promise<any> {
-        const user = await this.usersService.findOneByLogin(username);
+    async signIn(username: string, pass: string, identity: string, token=''): Promise<any> {
+        const user =  identity=='admin'?await this.usersService.findOneByLogin(username):await this.employeService.findOneByLogin(username);
         console.log(user)
         if (user == null) {
             console.log('8888888888888888888888888');
@@ -63,9 +65,13 @@ export class AuthService {
             token: token
         }
         user.token = token
-        console.log(await this.usersService.updatetoken(upt))
-        console.log(await this.usersService.findOneByLogin(username));
-        
+        if(identity=='admin') {
+            console.log(await this.usersService.updatetoken(upt))
+            console.log(await this.usersService.findOneByLogin(username));
+        }else {
+            console.log(await this.employeService.updatetoken(upt))
+            console.log(await this.employeService.findOneByLogin(username));
+        }
         return {
             user: user,
             code:token
@@ -73,19 +79,19 @@ export class AuthService {
         //access_token: await this.jwtService.signAsync(payload),
 
     }
-    async confirmLogin(username: string, pass: string, token: string): Promise<any> {
+    async confirmLogin(username: string, pass: string,identity: string, token: string): Promise<any> {
         console.log('99999999999999999999999');
-        const user = await this.usersService.findOneByLogin(username);
+        const user = identity=='admin'?await this.usersService.findOneByLogin(username):await this.employeService.findOneByLogin(username);
         if (user == null)
-            throw new UnauthorizedException();
+            throw new TypeError('identifiant incorecte');
         const isMatch = await bcrypt.compare(pass, user?.password);
         console.log(isMatch);
         if (!isMatch) {
-            throw new UnauthorizedException();
+            throw new TypeError('mauvais password');
         }
         console.log('99999999999999999999999');
         if(user.token != token){
-            throw new UnauthorizedException();
+            throw new TypeError('mauvais passe de confirmation');
         }
         const payload = { username: user.login, sub: user._id };
         return {

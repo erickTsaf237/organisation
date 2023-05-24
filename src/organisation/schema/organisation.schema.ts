@@ -13,9 +13,9 @@ export class Organisation extends Document{
     id_user: string
     @Prop()
     code: string
-    @Prop()
-    createAt: Date
-    @Prop()
+    @Prop({default:Date.now()})
+    createdAt: Date
+    @Prop({default:Date.now()})
     updatedAt: Date
 }
 

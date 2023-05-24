@@ -28,6 +28,10 @@ export class OrganisationController {
     getOne(@Param('id') id){
         return this.organisationService.findOne(id);
     }
+    @Get(':id')
+    getOneById(@Param('id') id){
+        return this.organisationService.findOneByPK(id);
+    }
     // @UseGuards(AuthGuard)
     @Delete(':id')
     deleteUser(@Param('id') id){
