@@ -18,6 +18,10 @@ export class Election{
     id_organisation: string
     @Prop({default:1})
     valeur: number
+    @Prop({default:[]})
+    champElecteur: [[string]]
+
+
 }
 
 

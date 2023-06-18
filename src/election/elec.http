@@ -15,6 +15,20 @@ Content-Type: application/json
 }
 
 ### Send POST request with json body
+POST http://localhost:3000/electeur
+Content-Type: application/json
+
+{
+  "donnees": {
+    "element1": 1,
+    "element2": "maison",
+    "element3": 50
+  },
+  "election": "64490daf85e0c57210f3aef0",
+  "section": "644a83f183ae5f877eb4b7c8"
+}
+
+### Send POST request with json body
 PUT http://localhost:3000/election
 Content-Type: application/json
 

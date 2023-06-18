@@ -20,6 +20,12 @@ export class ElectionController {
         return this.electionService.update(updatedObject);
     }
 
+    @Put('/liste')
+    updateListeElecteur(@Body() updatedObject:Election){
+        console.log(updatedObject)
+        return this.electionService.update(updatedObject);
+    }
+
     @Delete(':id')
     deleteOne(@Param('id')id:string){
         return this.electionService.deleteOne(id);

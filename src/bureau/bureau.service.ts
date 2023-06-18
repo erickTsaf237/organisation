@@ -57,4 +57,12 @@ export class BureauService {
         console.log(u);
         return u;
     }
+
+    async getAllByElection(id_election: string) {
+        const u = await this.bureau.find({
+            id_election: id_election
+        }).exec();
+        console.log(u);
+        return u;
+    }
 }

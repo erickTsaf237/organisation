@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<racine>
+    <enseignants>
+
+        <enseignant>
+            <id_enseignant>1</id_enseignant>
+            <nom>Tsafack Erick</nom>
+            <adresse>Bandjoun</adresse>
+            <domaine>Math</domaine>
+        </enseignant>
+        <enseignant>
+        <id_enseignant>2</id_enseignant>
+            <nom>Tchinda Joel</nom>
+            <adresse>Bandjoun</adresse>
+            <domaine>Anglais</domaine>
+        </enseignant>
+        <enseignant>
+            <id_enseignant>3</id_enseignant>
+            <nom>Tchinda Jordan</nom>
+            <adresse>Bandjoun</adresse>
+            <domaine>Programmation</domaine>
+        </enseignant>
+
+    </enseignants>
+
+    <permanants>
+        <permanant>
+            <id_enseignant>2</id_enseignant>
+            <matiere>Technique de communication</matiere>
+            <salaire>10000</salaire>
+        </permanant>
+        <permanant>
+            <id_enseignant>3</id_enseignant>
+            <matiere>Langage de programmation C</matiere>
+            <salaire>10000</salaire>
+        </permanant>
+    </permanants>
+
+    <vacataires>
+        <vacataire>
+            <id_enseignant>1</id_enseignant>
+            <taux_vacataire>75</taux_vacataire>
+        </vacataire>
+    </vacataires>
+
+    <classes>
+        <classe>
+            <id_classe>1</id_classe>
+            <nom>CDRI</nom>
+            <effectif>80</effectif>
+        </classe>
+        <classe>
+            <id_classe></id_classe>
+            <nom>QSIR</nom>
+            <effectif>30</effectif>
+        </classe>
+    </classes>
+
+    <enseigners>
+        <enseigner>
+            <id_enseigner>1</id_enseigner>
+            <id_enseignant>1</id_enseignant>
+            <id_classe>1</id_classe>
+        </enseigner>
+        <enseigner>
+            <id_enseigner>2</id_enseigner>
+            <id_enseignant>2</id_enseignant>
+            <id_classe>1</id_classe>
+        </enseigner>
+        <enseigner>
+            <id_enseigner>3</id_enseigner>
+            <id_enseignant>1</id_enseignant>
+            <id_classe>2</id_classe>
+        </enseigner>
+        <enseigner>
+            <id_enseigner>4</id_enseigner>
+            <id_enseignant>3</id_enseignant>
+            <id_classe>2</id_classe>
+        </enseigner>
+    </enseigners>
+
+    <est_principales>
+        <est_principale>
+            <id_est_principale>1</id_est_principale>
+            <id_enseigner>1</id_enseigner>
+            <id_enseignant>1</id_enseignant>
+            <id_classe>1</id_classe>
+            <annee>2023</annee>
+        </est_principale>
+        <est_principale>
+            <id_est_principale>2</id_est_principale>
+            <id_enseigner>1</id_enseigner>
+            <id_enseignant>1</id_enseignant>
+            <id_classe>1</id_classe>
+            <annee>2022</annee>
+        </est_principale>
+        <est_principale>
+            <id_est_principale>3</id_est_principale>
+            <id_enseigner>4</id_enseigner>
+            <id_enseignant>3</id_enseignant>
+            <id_classe>2</id_classe>
+            <annee>2022</annee>
+        </est_principale>
+        <est_principale>
+            <id_est_principale>4</id_est_principale>
+            <id_enseigner>4</id_enseigner>
+            <id_enseignant>3</id_enseignant>
+            <id_classe>2</id_classe>
+            <annee>2023</annee>
+        </est_principale>
+    </est_principales>
+</racine>

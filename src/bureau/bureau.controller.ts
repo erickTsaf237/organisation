@@ -65,4 +65,8 @@ export class BureauController {
     getAllByElectionSection(@Param('id_election')id_election:string,@Param('id_section')id_section:string){
         return this.bureauService.getAllByElectionSection(id_election, id_section);
     }
+    @Get('/election/:id_election')
+    getAllByElection(@Param('id_election')id_election:string){
+        return this.bureauService.getAllByElection(id_election);
+    }
 }

@@ -8,17 +8,14 @@ import {AuthModule} from './auth/auth.module';
 import { OrganisationModule } from './organisation/organisation.module';
 import {OrganisationModel} from "./organisation/model/organisation.model";
 import { ElectionModule } from './election/election.module';
-import sequelize, {Sequelize} from "sequelize";
-import * as mongoose from "mongoose";
-import {Mongoose} from "mongoose";
 import {MongooseModule} from "@nestjs/mongoose";
 import { TestModule } from './test/test.module';
-import { SectionController } from './section/section.controller';
 import {SectionModule} from "./section/section.module";
 import { EmployeModule } from './employe/employe.module';
 import { CandidatModule } from './candidat/candidat.module';
 import { BureauModule } from './bureau/bureau.module';
 import { VoteModule } from './vote/vote.module';
+import { ElecteurModule } from './electeur/electeur.module';
 SequelizeModule.forRoot({
     dialect: 'mysql',
     host: 'mysql-120452-0.cloudclusters.net',
@@ -49,18 +46,21 @@ SequelizeModule.forRoot({
             logQueryParameters: true,
             // autoLoadModels: true,
         }),
+        //UcaBdudoev48EVofyAdlaeklcuhBZqXzSxAQiCTsH0n43m3AQA6Ik1PtP7YFgrpf
+        // MongooseModule.forRoot('mongodb+srv://ericktsafack2017:qfUDElkBLAvI9fSQ@cluster0.akq9xl8.mongodb.net/voting?retryWrites=true&w=majority'),
         MongooseModule.forRoot('mongodb://127.0.0.1:27017/voting'),
         UserModule,
-        TestModule,
+        // TestModule,
         AuthModule,
         OrganisationModule,
         ElectionModule,
         SectionModule,
-        TestModule,
+        // TestModule,
         EmployeModule,
         CandidatModule,
         BureauModule,
         VoteModule,
+        ElecteurModule,
     ],
     controllers: [AppController],
     providers: [AppService],
