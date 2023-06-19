@@ -33,8 +33,8 @@ export class CandidatService {
     }
 
     deleteManyByParen(id: string) {
-         this.candidat.deleteMany({id_election:id})
-        return true;
+        this.candidat.deleteMany({id_election:id})
+        return true
     }
 
     getOne(id: string) {
