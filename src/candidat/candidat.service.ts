@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
+
 import {Election} from "../election/schema/election.schema";
 import {Model} from "mongoose";
 import {Candidat} from "./schema/candidat.schema";
