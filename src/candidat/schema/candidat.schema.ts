@@ -12,7 +12,7 @@ export class Candidat{
     nom:string
     @Prop({required: true})
     prenom:string
-    @Prop({required: true, unique:true})
+    @Prop({required: true})
     parti:string
 
     @Prop()
@@ -22,10 +22,11 @@ export class Candidat{
 
     @Prop()
     date_naissance:string
-    @Prop({type: Schema2.Types.ObjectId,  ref:'Election',require:true})
+    @Prop({type: Schema2.Types.ObjectId,  ref:'elections',require:true})
     id_election:string
 
 
 }
 
 export const CandidatSchema = SchemaFactory.createForClass(Candidat);
+CandidatSchema.index({parti:1, id_election:1})

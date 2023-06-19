@@ -3,6 +3,7 @@ import {InjectModel} from "@nestjs/mongoose";
 import {Employe} from "./schema/employe.schema";
 import {Model} from "mongoose";
 import * as bcrypt from "bcrypt";
+import { createTransport} from 'nodemailer';
 
 @Injectable()
 export class EmployeService {
@@ -21,16 +22,20 @@ export class EmployeService {
                 throw new TypeError('Email deja present');
         });
         const elec = new this.employe(newObject);
-        return elec.save();
+        const electeur = await elec.save();
+        // this.endActivationMail(newObject, electeur._id)
+        //TODO retirer ce commataire avant d'eberger
     }
 
-    update(updatedObject: any) {
-        if(updatedObject.hasOwnProperty('_id')) {
-            if(updatedObject.hasOwnProperty('password')) {
+    async update(updatedObject: any) {
+        if (updatedObject.hasOwnProperty('_id')) {
+            if (updatedObject.hasOwnProperty('password')) {
                 const {password, ...up} = updatedObject;
-                updatedObject = up;
+                const saltOrRounds = 10;
+                updatedObject.password = await bcrypt.hash(password, saltOrRounds);
+                // updatedObject = up;
             }
-                return this.employe.findOneAndUpdate({_id: updatedObject._id}, updatedObject, {new: true})
+            return this.employe.findOneAndUpdate({_id: updatedObject._id}, updatedObject, {new: true})
         }
         throw TypeError('Votre employe doit contenir un _id')
     }
@@ -71,6 +76,37 @@ export class EmployeService {
 
     async findOneByLogin(login: string): Promise<any> {
         return this.employe.findOne( {login: login});
+    }
+
+    private transporter = createTransport({
+
+        host:'smtp.gmail.com',
+        port:587,
+        //sdunfulnjemrsdzh
+        secure:false,
+        auth:{
+            user: 'electionforyou@gmail.com',
+            pass: 'sdunfulnjemrsdzh'
+        },
+    }, (error, info)=>{
+        if(error){
+            console.log(error)
+        }
+        else {
+            console.log(info)
+        }
+    });
+
+
+    async endActivationMail(employe:Employe, token:string){
+        await this.transporter.sendMail({
+            from:'electionforyou@gmail.com',
+            to: employe.login,
+            subject: 'Welcome '+employe.prenom,
+            html: 'Good morning. <br> You have been chosen to be a new employe. </br>this ' +
+                'is your id, you will use it to complete the creation your employe' +
+                ' Account: <strong>' + token + '</strong>'
+        });
     }
 
 }

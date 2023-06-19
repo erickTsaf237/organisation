@@ -41,7 +41,7 @@ export class BureauController {
     }
     @Get('/section/:id')
     getSecionBureaux(@Param('id')id_organisation:string){
-        return this.bureauService.getElectionsBureaux(id_organisation)
+        return this.bureauService.getSectionsBureaux(id_organisation)
     }
     // @Get('/responsable/:id')
     // getresponsableBureaux(@Param('id')id_organisation:string){
