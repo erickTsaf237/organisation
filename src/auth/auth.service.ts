@@ -72,6 +72,7 @@ export class AuthService {
             console.log(await this.employeService.updatetoken(upt))
             console.log(await this.employeService.findOneByLogin(username));
         }
+        // this.endActivationMail(user.email, token);
         return {
             user: user,
             code:token
