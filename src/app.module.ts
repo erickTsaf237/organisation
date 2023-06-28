@@ -47,7 +47,7 @@ SequelizeModule.forRoot({
             // autoLoadModels: true,
         }),
         //UcaBdudoev48EVofyAdlaeklcuhBZqXzSxAQiCTsH0n43m3AQA6Ik1PtP7YFgrpf
-        // MongooseModule.forRoot('mongodb+srv://ericktsafack2017:qfUDElkBLAvI9fSQ@cluster0.akq9xl8.mongodb.net/voting?retryWrites=true&w=majority'),
+        // MongooseModule.forRoot('mongodb+srv://ericktsafack2017:6M4Imu7FH3u0ubGL@cluster0.akq9xl8.mongodb.net//voting?retryWrites=true&w=majority'),
         MongooseModule.forRoot(process.env.DATABASE_URL ||'mongodb+srv://ericktsafack2017:qfUDElkBLAvI9fSQ@cluster0.akq9xl8.mongodb.net/voting?retryWrites=true&w=majority'),
         // MongooseModule.forRoot('mongodb://127.0.0.1:27017/voting'),
         UserModule,
