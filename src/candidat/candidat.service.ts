@@ -23,9 +23,9 @@ export class CandidatService {
     }
 
     update(updatedObject: any) {
-        if(updatedObject.hasOwnProperty('_id'))
+        if('_id' in updatedObject && updatedObject._id !== undefined)
             return this.candidat.findOneAndUpdate({_id:updatedObject._id}, updatedObject, {new:true})
-        throw TypeError('Votre election doit contenir un _id')
+        throw TypeError('Votre candaidat doit contenir un _id')
     }
 
     deleteOne(id: string) {

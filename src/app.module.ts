@@ -1,6 +1,8 @@
 import {Module} from '@nestjs/common';
 import {AppController} from './app.controller';
 import {AppService} from './app.service';
+import {ServeStaticModule} from '@nestjs/serve-static';
+import {join} from 'path';
 import {SequelizeModule} from '@nestjs/sequelize';
 import {UserModule} from './user/user.module';
 import {User} from "./user/model/user.model";
@@ -9,7 +11,6 @@ import { OrganisationModule } from './organisation/organisation.module';
 import {OrganisationModel} from "./organisation/model/organisation.model";
 import { ElectionModule } from './election/election.module';
 import {MongooseModule} from "@nestjs/mongoose";
-import { TestModule } from './test/test.module';
 import {SectionModule} from "./section/section.module";
 import { EmployeModule } from './employe/employe.module';
 import { CandidatModule } from './candidat/candidat.module';
@@ -33,6 +34,7 @@ SequelizeModule.forRoot({
 // host: 'mysql-120452-0.cloudclusters.net',
 @Module({
     imports: [
+        ServeStaticModule.forRoot({rootPath: join(__dirname, '..', 'upload')}),
         SequelizeModule.forRoot({
             dialect: 'mysql',
             host: 'localhost',
