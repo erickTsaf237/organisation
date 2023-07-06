@@ -16,12 +16,11 @@ export class ElecteurService {
 
     async create(newObject: Electeur) {
         const electeur = this.getOneByIdAndCNINumber(newObject.cni, newObject.id_election);
-        if (electeur instanceof Boolean) {
+        if (!(electeur instanceof Boolean)) {
             const elec = new this.electeur(newObject);
             return elec.save();
         }
         throw Error('cet Electeur est deja present');
-
     }
 
     async getOneByIdAndCNINumber(cni: string, electionId) {

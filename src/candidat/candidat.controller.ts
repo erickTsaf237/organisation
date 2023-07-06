@@ -4,6 +4,7 @@ import {Candidat} from "./schema/candidat.schema";
 import {FileInterceptor} from "@nestjs/platform-express";
 import {diskStorage} from 'multer'
 import {extname} from 'path'
+import {delay} from "rxjs";
 
 @Controller('candidat')
 export class CandidatController {
@@ -63,7 +64,9 @@ export class CandidatController {
     }
 
     @Get('/election/:id')
-    getElectionsCandidat(@Param('id') id_organisation: string) {
+    async getElectionsCandidat(@Param('id') id_organisation: string) {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        // console.log('Deux secondes se sont écoulées');
         return this.candidatService.getElectionsCandidat(id_organisation)
     }
 }

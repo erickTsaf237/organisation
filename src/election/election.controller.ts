@@ -14,6 +14,11 @@ export class ElectionController {
         return this.electionService.create(newObject);
     }
 
+    @Put('/voting_date')
+    updateVotingDate(@Body() updatedObject:Election){
+        console.log(updatedObject)
+        return this.electionService.updateVotingDates(updatedObject);
+    }
     @Put()
     update(@Body() updatedObject:Election){
         console.log(updatedObject)

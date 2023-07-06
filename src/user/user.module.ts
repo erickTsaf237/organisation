@@ -7,11 +7,11 @@ import * as UserMongo from "./shemas/users.shema";
 import {MongooseModule} from "@nestjs/mongoose";
 
 @Module({
-  imports: [SequelizeModule.forFeature([User]),
+  imports: [
       MongooseModule.forFeature([{name: UserMongo.User.name, schema: UserMongo.UserSchema}])
   ],
   controllers: [UserController],
-  exports: [SequelizeModule, UserService],
+  exports: [ UserService],
   providers: [UserService],
 })
 export class UserModule {}
