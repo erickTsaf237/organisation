@@ -24,14 +24,14 @@ export class Electeur{
     password:string
     @Prop()
     numero:string
-    @Prop()
+    @Prop({required:true})
     cni:string
+    @Prop({unique:true, required:true})
+    registration_number:string
     @Prop()
     image:string
-
-    @Prop()
     @Prop({ required: true, type: Object })
-    date_naissance:string
+    date_naissance:Date;
     0: Record<string, any>;
 }
 

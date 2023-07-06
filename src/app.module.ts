@@ -3,12 +3,9 @@ import {AppController} from './app.controller';
 import {AppService} from './app.service';
 import {ServeStaticModule} from '@nestjs/serve-static';
 import {join} from 'path';
-import {SequelizeModule} from '@nestjs/sequelize';
 import {UserModule} from './user/user.module';
-import {User} from "./user/model/user.model";
 import {AuthModule} from './auth/auth.module';
 import { OrganisationModule } from './organisation/organisation.module';
-import {OrganisationModel} from "./organisation/model/organisation.model";
 import { ElectionModule } from './election/election.module';
 import {MongooseModule} from "@nestjs/mongoose";
 import {SectionModule} from "./section/section.module";
@@ -17,37 +14,13 @@ import { CandidatModule } from './candidat/candidat.module';
 import { BureauModule } from './bureau/bureau.module';
 import { VoteModule } from './vote/vote.module';
 import { ElecteurModule } from './electeur/electeur.module';
-SequelizeModule.forRoot({
-    dialect: 'mysql',
-    host: 'mysql-120452-0.cloudclusters.net',
-    port: 18735,
-    username: 'voting_user',
-    password: '101156204',
-    // password: 'voting_user$!10115620*/',
-    database: 'voting',
-    models: [User, OrganisationModel],
-    autoLoadModels: true,
-    synchronize: true,
 
-})
 //https://clients.cloudclusters.io/applications
 // host: 'mysql-120452-0.cloudclusters.net',
 @Module({
     imports: [
-        ServeStaticModule.forRoot({rootPath: join(__dirname, '..', 'upload')}),
-        SequelizeModule.forRoot({
-            dialect: 'mysql',
-            host: 'localhost',
-            port: 3306,
-            username: 'root',
-            password: '',
-            database: 'voting',
-            models: [/*User, OrganisationModel*/],
-            // autoLoadModels: true,
-            synchronize: true,
-            logQueryParameters: true,
-            // autoLoadModels: true,
-        }),
+        ServeStaticModule.forRoot({rootPath: join(__dirname, '..', 'upload' )}),
+        // ServeStaticModule.forRoot({rootPath: join(__dirname, '..', 'logs'), serveRoot: '/logs', }),
         //UcaBdudoev48EVofyAdlaeklcuhBZqXzSxAQiCTsH0n43m3AQA6Ik1PtP7YFgrpf
         // MongooseModule.forRoot('mongodb+srv://ericktsafack2017:6M4Imu7FH3u0ubGL@cluster0.akq9xl8.mongodb.net//voting?retryWrites=true&w=majority'),
         MongooseModule.forRoot(process.env.DATABASE_URL ||'mongodb+srv://ericktsafack2017:qfUDElkBLAvI9fSQ@cluster0.akq9xl8.mongodb.net/voting?retryWrites=true&w=majority'),
@@ -64,7 +37,7 @@ SequelizeModule.forRoot({
         ElecteurModule,
     ],
     controllers: [AppController],
-    providers: [AppService],
+    providers: [AppService, ],
 })
 export class AppModule {
 }

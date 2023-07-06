@@ -29,6 +29,12 @@ export class ElectionService {
             return this.election.findOneAndUpdate({_id: updatedObject._id}, {'champElecteur': updatedObject.champElecteur}, {new: true})
         throw TypeError('Votre election doit contenir un _id')
     }
+    updateVotingDates(updatedObject: any) {
+        console.log(updatedObject)
+        if (updatedObject.hasOwnProperty('_id') && updatedObject.hasOwnProperty('ending_voting_time') && updatedObject.hasOwnProperty('begining_voting_time') )
+            return this.election.findOneAndUpdate({_id: updatedObject._id}, {'ending_voting_time': updatedObject.ending_voting_time, 'begining_voting_time':updatedObject.begining_voting_time}, {new: true})
+        throw TypeError('Votre election doit contenir un _id, un ending_voting_time et un begining_voting_time')
+    }
 
     update2(updatedObject: any) {
         console.log(updatedObject)

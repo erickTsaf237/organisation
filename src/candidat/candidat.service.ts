@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
-
 import {Election} from "../election/schema/election.schema";
 import {Model} from "mongoose";
 import {Candidat} from "./schema/candidat.schema";
@@ -9,7 +8,7 @@ import {ElectionService} from "../election/election.service";
 @Injectable()
 export class CandidatService {
     constructor(@InjectModel(Candidat.name) private candidat:typeof Model<Candidat>,
-                private electionService: ElectionService
+                private electionService: ElectionService,
                 ) {
     }
 
@@ -46,7 +45,7 @@ export class CandidatService {
     }
 
     getAll() {
-        return this.candidat.find().populate('id_election').exec();
+        return this.candidat.find().exec();
     }
 }
 

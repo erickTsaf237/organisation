@@ -6,7 +6,8 @@ import {Candidat, CandidatSchema} from "./schema/candidat.schema";
 import {ElectionModule} from "../election/election.module";
 
 @Module({
-  imports:[MongooseModule.forFeature([{name:Candidat.name, schema:CandidatSchema}]), ElectionModule],
+  imports:[MongooseModule.forFeature([{name:Candidat.name, schema:CandidatSchema}]), ElectionModule,
+  ],
   controllers: [CandidatController],
   exports:[CandidatService],
   providers: [CandidatService]
