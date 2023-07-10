@@ -15,8 +15,8 @@ export class ElecteurService {
 
 
     async create(newObject: Electeur) {
-        const electeur = this.getOneByIdAndCNINumber(newObject.cni, newObject.id_election);
-        if (!(electeur instanceof Boolean)) {
+        const electeur = await this.getOneByIdAndCNINumber(newObject.numero_de_cni, newObject.id_election);
+        if ((electeur == true)) {
             const elec = new this.electeur(newObject);
             return elec.save();
         }
@@ -24,10 +24,23 @@ export class ElecteurService {
     }
 
     async getOneByIdAndCNINumber(cni: string, electionId) {
-        const elec = await this.electeur.findOne({cni: cni, id_election: electionId});
-        if (elec._id != null){
+        const elec = await this.electeur.findOne({numero_de_cni: cni, id_election: electionId});
+        console.log(elec);
+        if (elec != null){
             return elec;
         }
         return true;
+    }
+
+    putPhoto_electeur(updatedObject: Electeur, id: string) {
+        return this.electeur.findOneAndUpdate({_id:id}, {'photo_electeur':updatedObject.photo_electeur,}, {new:true})
+    }
+
+    putPhoto_cni_avant(updatedObject: Electeur, id: string) {
+        return this.electeur.findOneAndUpdate({_id:id}, {'photo_cni_avant':updatedObject.photo_cni_avant,}, {new:true})
+    }
+
+    putPhoto_cni_arriere(updatedObject: Electeur, id: string) {
+        return this.electeur.findOneAndUpdate({_id:id}, {'photo_cni_arriere':updatedObject.photo_cni_arriere,}, {new:true})
     }
 }

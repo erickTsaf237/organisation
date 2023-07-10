@@ -66,7 +66,6 @@ export class CandidatController {
     @Get('/election/:id')
     async getElectionsCandidat(@Param('id') id_organisation: string) {
         await new Promise(resolve => setTimeout(resolve, 2000));
-        // console.log('Deux secondes se sont écoulées');
         return this.candidatService.getElectionsCandidat(id_organisation)
     }
 }

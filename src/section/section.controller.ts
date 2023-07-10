@@ -38,4 +38,10 @@ export class SectionController {
     getOrganisationSections(@Param('id')id_organisation:string){
         return this.sectionService.getOrganistaionSections(id_organisation)
     }
+
+    @Get('/ville/organisation/:id')
+    getOrganisationSectionsVille(@Param('id')id_organisation:string){
+        console.log('888888888888888888888888888888888888888888888888888888888')
+        return this.sectionService.getOrganistaionSectionsVlle(id_organisation)
+    }
 }

@@ -65,7 +65,7 @@ GET http://localhost:3000/section/6444bb8b756c7d0d2a7cb99c
 Accept: application/json
 
 ### Send GET all Section request
-GET http://localhost:3000/section/all
+GET http://192.168.43.19:3000/section/ville/organisation/648ee499bf41b1924bd32126
 Accept: application/json
 
 ### Send GET orgnisation section request
