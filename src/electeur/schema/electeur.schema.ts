@@ -24,6 +24,8 @@ export class Electeur{
     password:string
     @Prop()
     numero:string
+    @Prop()
+    valide:string
     @Prop({required:true})
     numero_de_cni:string
     @Prop()

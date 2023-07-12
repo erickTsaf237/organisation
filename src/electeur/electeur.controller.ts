@@ -1,4 +1,4 @@
-import {Body, Controller, Param, Post, Put, UploadedFile, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post, Put, UploadedFile, UseInterceptors} from '@nestjs/common';
 import {ElectionService} from "../election/election.service";
 import {Election} from "../election/schema/election.schema";
 import {diskStorage} from 'multer'
@@ -42,6 +42,11 @@ export class ElecteurController {
             // updatedObject.image = file.filename;
         // console.log(updatedObject)
         // return this.electeurService.create(updatedObject);
+    }
+
+    @Put('/reponse/:id')
+    repondreEleceteur(@Param('id') id, @Body() reponse:Electeur){
+        return this.electeurService.repondreDemmande(id, reponse)
     }
 
     @Put('/photo_electeur/:id')
@@ -102,6 +107,18 @@ export class ElecteurController {
             updatedObject.photo_cni_arriere = file.filename;
         // console.log(updatedObject)
         return this.electeurService.putPhoto_cni_arriere(updatedObject, id);
+    }
+
+    @Get('/section/:id')
+    getElecteurBySectionId(@Param('id')id_Section:string){
+        return this.electeurService.getElecteurBySectionId(id_Section)
+    }
+    @Get('/bureau/:id')
+    getElecteurByBureauId(@Param('id')id_bureau:string){
+        return this.electeurService.getElecteurByBureauId(id_bureau)
+    }@Get('/election/:id')
+    getElecteurByElectionId(@Param('id')id_bureau:string){
+        return this.electeurService.getElecteurByElectionId(id_bureau)
     }
 
 }
