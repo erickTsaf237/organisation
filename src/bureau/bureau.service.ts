@@ -68,4 +68,8 @@ export class BureauService {
         console.log(u);
         return u;
     }
+
+    getSectionsElectionBureaux(id_section: string, id_election: string) {
+        return this.bureau.find({id_election:id_election, id_section:id_section}).exec();
+    }
 }

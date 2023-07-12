@@ -43,8 +43,12 @@ export class BureauController {
     getSecionBureaux(@Param('id')id_organisation:string){
         return this.bureauService.getSectionsBureaux(id_organisation)
     }
+    @Get('/section/:id_section/:id_election')
+    getSecionElectionBureaux(@Param('id')id_section:string, @Param('id')id_election:string){
+        return this.bureauService.getSectionsElectionBureaux(id_section, id_election)
+    }
     // @Get('/responsable/:id')
-    // getresponsableBureaux(@Param('id')id_organisation:string){
+    // getresponsableBureaux(@Param('id')id_org anisation:string){
     //     return this.bureauService.getElectionsBureaux(id_organisation)
     // }
     // @Get('/election/:id')
@@ -61,8 +65,9 @@ export class BureauController {
         return this.bureauService.employeIsFree(id_election, id_responsable)
     }
 
-    @Get('/section/election/:id_election/:id_section')
+    @Get('/section/election/:id_section/:id_election')
     getAllByElectionSection(@Param('id_election')id_election:string,@Param('id_section')id_section:string){
+        console.log({id_section, id_election})
         return this.bureauService.getAllByElectionSection(id_election, id_section);
     }
     @Get('/election/:id_election')

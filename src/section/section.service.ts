@@ -35,4 +35,7 @@ export class SectionService {
         return this.section.find().populate('id_organisation').exec();
     }
 
+    getOrganistaionSectionsVlle(id_organisation: string) {
+        return this.section.find({id_organisation:id_organisation}, {ville:true})
+    }
 }

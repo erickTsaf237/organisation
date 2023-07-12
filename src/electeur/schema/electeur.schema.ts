@@ -8,28 +8,34 @@ export type ElecteurDocument = HydratedDocument<Electeur>
 export class Electeur{
     @Prop({type:Schema2.Types.ObjectId, ref:'elections', require:true})
     id_election: string
-    @Prop({type:Schema2.Types.ObjectId, ref:'sections', require:true})
+    @Prop({type:Schema2.Types.ObjectId, ref:'sections', require:false})
     id_section: string
-    @Prop({type:Schema2.Types.ObjectId, ref:'bureaux', require:true})
+    @Prop({type:Schema2.Types.ObjectId, ref:'bureaux', require:false})
     id_bureau: string
-    @Prop({type:Schema2.Types.ObjectId, ref:'employes', require:true})
+    @Prop({type:Schema2.Types.ObjectId, ref:'employes', require:false})
     id_employe: string
     @Prop({required: true})
     nom:string
     @Prop({required: true})
     prenom:string
     @Prop()
-    login:string
+    email:string
     @Prop()
     password:string
     @Prop()
     numero:string
+    @Prop()
+    valide:string
     @Prop({required:true})
-    cni:string
-    @Prop({unique:true, required:true})
+    numero_de_cni:string
+    @Prop()
     registration_number:string
     @Prop()
-    image:string
+    photo_electeur:string
+    @Prop()
+    photo_cni_avant:string
+    @Prop()
+    photo_cni_arriere:string
     @Prop({ required: true, type: Object })
     date_naissance:Date;
     0: Record<string, any>;
