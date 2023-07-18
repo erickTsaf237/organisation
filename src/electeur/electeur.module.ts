@@ -8,7 +8,7 @@ import {ElectionModule} from "../election/election.module";
 @Module({
   imports: [MongooseModule.forFeature([{name: Electeur.name, schema: ElecteurSchema}]), ElectionModule],
   controllers: [ElecteurController],
-  exports: [ElecteurService],
-  providers: [ElecteurService]
+  exports: [ElecteurService, Electeur],
+  providers: [ElecteurService, Electeur]
 })
 export class ElecteurModule {}

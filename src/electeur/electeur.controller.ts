@@ -116,7 +116,17 @@ export class ElecteurController {
     @Get('/bureau/:id')
     getElecteurByBureauId(@Param('id')id_bureau:string){
         return this.electeurService.getElecteurByBureauId(id_bureau)
-    }@Get('/election/:id')
+    }
+    @Get('/election/:id/:id_election')
+    getElecteurByIdAndElectionId(@Param('id')id:string, @Param('id_election')id_election:string) {
+        return this.electeurService.getElecteurByIdAndElectionId(id, id_election)
+    }
+
+    @Get('/user/election/:id_user/:id_election')
+    getElecteurByElectionIdAndUserId(@Param('id_user')id_user:string, @Param('id_election')id_election:string) {
+        return this.electeurService.getElecteurByElectionIdAndUserId(id_user, id_election)
+    }
+    @Get('/election/:id')
     getElecteurByElectionId(@Param('id')id_bureau:string){
         return this.electeurService.getElecteurByElectionId(id_bureau)
     }

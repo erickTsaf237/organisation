@@ -112,4 +112,12 @@ export class ElecteurService {
     getElecteurByElectionId(id_election: string) {
         return this.electeur.find({id_election: id_election, valide: {$ne: 'valide'}})
     }
+
+    getElecteurByIdAndElectionId(id: string, id_election: string) {
+        return this.electeur.findOne({_id:id ,id_election: id_election, valide: 'valide', })
+    }
+
+    getElecteurByElectionIdAndUserId(id_user: string, id_election: string) {
+        return this.electeur.findOne({id_user:id_user ,id_election: id_election, valide:'valide', })
+    }
 }

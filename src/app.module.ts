@@ -16,6 +16,7 @@ import { VoteModule } from './vote/vote.module';
 import { ElecteurModule } from './electeur/electeur.module';
 import { JwtModule } from '@nestjs/jwt';
 // import { JwtMiddleware } from './jwt.middleware';
+import { MachineModule } from './machine/machine.module';
 
 //https://clients.cloudclusters.io/applications
 // host: 'mysql-120452-0.cloudclusters.net',
@@ -43,6 +44,7 @@ import { JwtModule } from '@nestjs/jwt';
         BureauModule,
         VoteModule,
         ElecteurModule,
+        MachineModule,
 
     ],
     controllers: [AppController],

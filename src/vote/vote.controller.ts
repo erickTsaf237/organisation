@@ -7,7 +7,7 @@ export class VoteController {
     constructor(private voteService: VoteService) {
     }
 
-    @Post()
+    @Post('/machine')
     create(@Body()newObject:Vote){
         console.log(newObject);
         return this.voteService.create(newObject);
