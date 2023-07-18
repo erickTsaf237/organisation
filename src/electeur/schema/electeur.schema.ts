@@ -18,6 +18,8 @@ export class Electeur{
     nom:string
     @Prop({required: true})
     prenom:string
+    @Prop({type:Schema2.Types.ObjectId||'', ref:'User'})
+    id_user:string
     @Prop()
     email:string
     @Prop()

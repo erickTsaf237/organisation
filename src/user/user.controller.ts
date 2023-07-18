@@ -18,7 +18,7 @@ export class UserController {
     getAll(){
         return this.userServiec.findAll();
     }
-    @Get(':id')
+    @Get('/:id')
     getone(@Param('id') id){
         return this.userServiec.findOne(id);
     }

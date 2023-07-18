@@ -20,6 +20,8 @@ export class User extends Document{
     numero:string
     @Prop()
     image:string
+    @Prop()
+    categorie:'admin'|'personne'
 
     @Prop()
     date_naissance:string

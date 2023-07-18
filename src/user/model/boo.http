@@ -45,7 +45,7 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVya
 
 
 ### Send POST request with json body
-GET http://localhost:3000/user/all/
+GET http://localhost:3000/user/64b2a79764304d9f2517d48d
 Accept: application/json
 
 

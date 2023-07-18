@@ -16,6 +16,7 @@ import { VoteModule } from './vote/vote.module';
 import { ElecteurModule } from './electeur/electeur.module';
 import { JwtModule } from '@nestjs/jwt';
 // import { JwtMiddleware } from './jwt.middleware';
+import { MachineModule } from './machine/machine.module';
 
 //https://clients.cloudclusters.io/applications
 // host: 'mysql-120452-0.cloudclusters.net',
@@ -31,7 +32,6 @@ import { JwtModule } from '@nestjs/jwt';
         // MongooseModule.forRoot('mongodb+srv://ericktsafack2017:6M4Imu7FH3u0ubGL@cluster0.akq9xl8.mongodb.net//voting?retryWrites=true&w=majority'),
         // MongooseModule.forRoot(process.env.DATABASE_URL ||'mongodb+srv://ericktsafack2017:qfUDElkBLAvI9fSQ@cluster0.akq9xl8.mongodb.net/voting?retryWrites=true&w=majority'),
         MongooseModule.forRoot('mongodb://127.0.0.1:27017/voting'),
-
         UserModule,
         AuthModule,
         OrganisationModule,
@@ -42,6 +42,7 @@ import { JwtModule } from '@nestjs/jwt';
         BureauModule,
         VoteModule,
         ElecteurModule,
+        MachineModule,
 
     ],
     controllers: [AppController],

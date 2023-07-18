@@ -12,6 +12,8 @@ export class Vote{
     id_candidat: string
     @Prop({type:Schema2.Types.ObjectId, ref:'Election',require:true})
     id_election: string
+    @Prop({type:Schema2.Types.ObjectId, ref:'Machine',require:true})
+    id_machine: string
 
 
 }
