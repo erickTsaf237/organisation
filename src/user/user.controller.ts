@@ -23,6 +23,8 @@ export class UserController {
         return this.userServiec.findOne(id);
     }
 
+
+
     @Delete(':id')
     deleteUser(@Param('id' ) id){
         return this.userServiec.remove(id);

@@ -13,6 +13,11 @@ export class VoteController {
         return this.voteService.create(newObject);
     }
 
+    @Get('/election/candidat/:id_election/:id_candidat')
+    getResultFromElectionAndCadidatId(@Param('id_election') id_election: string, @Param('id_candidat') id_candidat: string){
+        return this.voteService.getResultFromElectionAndCadidatId(id_election, id_candidat);
+    }
+
     @Put()
     update(@Body() updatedObject:Vote){
         console.log(updatedObject)

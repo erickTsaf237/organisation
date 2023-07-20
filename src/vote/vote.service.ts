@@ -17,7 +17,7 @@ export class VoteService {
     }
 
     async create(newObject: Vote) {
-        // const elec = new this.vote(newObject);
+        // const elec =  new this.vote(newObject);
         const session = await this.vote.db.startSession();
         session.startTransaction();
         try {
@@ -51,6 +51,20 @@ export class VoteService {
         if (updatedObject.hasOwnProperty('_id'))
             return this.vote.findOneAndUpdate({_id: updatedObject._id}, updatedObject, {new: true})
         throw TypeError('Votre election doit contenir un _id')
+    }
+
+    getResultFromElectionAndCadidatId(id_election: string, id_candidat: string) {
+
+        return this.vote.find({id_election:id_election}, {_id:true}).count().then(total => {
+            console.log(total);
+            if(total == 0){
+                return  0.00
+            }
+            return this.vote.find({id_election:id_election, id_candidat:id_candidat}, {_id:true}).count().then(value => {
+                console.log(value);
+                return value/total;
+            });
+        });
     }
 
     deleteOne(id: string) {
